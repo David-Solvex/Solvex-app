@@ -1,27 +1,29 @@
-/* Estilos base */
+/* Estilos base con mejoras de responsive */
 .solvex-index {
     font-family: 'Montserrat', sans-serif;
     background-color: #121212;
     color: #ffffff;
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden; /* Previene desbordamiento horizontal */
   }
   
   .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px; /* Padding más seguro para móviles */
+    box-sizing: border-box; /* Incluye padding en el ancho */
   }
   
-  /* Tipografía responsive base */
+  /* Tipografía responsive mejorada */
   body {
-    font-size: 14px;
+    font-size: clamp(14px, 3vw, 17px); /* Escala entre 14px y 17px */
   }
   
-  /* Hero Banner */
+  /* Hero Banner mejorado */
   .hero-banner {
-    padding: 60px 0;
+    padding: 40px 0;
     text-align: center;
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     position: relative;
@@ -29,13 +31,14 @@
   }
   
   .logo-container {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     animation: fadeInDown 1s ease-out;
   }
   
   .company-logo {
-    max-height: 150px;
+    max-height: 120px; /* Tamaño más adecuado para móviles */
     width: auto;
+    max-width: 80%; /* Evita que la imagen sea demasiado ancha */
     transition: transform 0.5s ease;
   }
   
@@ -44,27 +47,28 @@
   }
   
   .company-tagline {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 5vw, 2.8rem); /* Escala responsiva */
     font-weight: 700;
-    margin-bottom: 20px;
+    margin: 0 auto 15px;
     background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     animation: fadeIn 1.5s ease-out;
+    max-width: 90%; /* Evita desbordamiento */
   }
   
   .hero-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 100%;
+    border-radius: 12px; /* Bordes más suaves para móviles */
+    padding: 15px;
+    max-width: 95%; /* Más margen en móviles */
     margin: 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más suave */
     transform: translateY(20px);
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.3s forwards;
@@ -73,19 +77,20 @@
   .company-description {
     font-size: 1rem;
     line-height: 1.6;
+    text-align: center; /* Centrado en móviles */
   }
   
-  /* Mission & Vision */
+  /* Mission & Vision mejorado */
   .mission-vision {
-    padding: 60px 0;
+    padding: 40px 0;
   }
   
   .section-title {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4vw, 2.2rem); /* Escala responsiva */
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: #3a7bd5;
     position: relative;
   }
@@ -93,21 +98,21 @@
   .section-title::after {
     content: '';
     display: block;
-    width: 80px;
+    width: 60px;
     height: 3px;
     background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
-    margin: 15px auto;
+    margin: 10px auto;
   }
   
   .mv-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
   
   .mv-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 2px;
     position: relative;
     overflow: hidden;
@@ -141,8 +146,8 @@
   
   .card-inner {
     background: #1e1e1e;
-    border-radius: 13px;
-    padding: 25px;
+    border-radius: 10px;
+    padding: 20px;
     height: 100%;
     transition: all 0.3s ease;
   }
@@ -153,13 +158,13 @@
   }
   
   .card-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
   }
   
   .mv-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
     color: #3a7bd5;
   }
   
@@ -167,21 +172,21 @@
     color: #d53a7b;
   }
   
-  /* Values Section */
+  /* Values Section mejorado */
   .values-section {
-    padding: 60px 0;
+    padding: 40px 0;
   }
   
   .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Más flexible */
+    gap: 15px;
+    margin-top: 30px;
   }
   
   .value-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 2px;
     transition: all 0.3s ease;
     transform: translateY(20px);
@@ -196,8 +201,8 @@
   .value-card:nth-child(5) { animation-delay: 0.5s; }
   
   .value-card:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) !important; /* Efecto más sutil */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
   
   .value-card .card-inner {
@@ -205,13 +210,13 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 25px 15px;
+    padding: 20px 10px;
     height: 100%;
   }
   
   .value-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
     color: #00d2ff;
     transition: all 0.3s ease;
   }
@@ -221,26 +226,26 @@
   }
   
   .value-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
   }
   
-  /* Services Section */
+  /* Services Section mejorado */
   .services-section {
-    padding: 60px 0;
+    padding: 40px 0;
     background: rgba(0, 0, 0, 0.3);
   }
   
   .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 40px;
+    gap: 15px;
+    margin-top: 30px;
   }
   
   .service-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 2px;
     position: relative;
     overflow: hidden;
@@ -267,8 +272,8 @@
   
   .service-card .card-inner {
     background: #1e1e1e;
-    border-radius: 13px;
-    padding: 25px;
+    border-radius: 10px;
+    padding: 20px;
     height: 100%;
     transition: all 0.3s ease;
   }
@@ -279,8 +284,8 @@
   }
   
   .service-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
     color: #3a7bd5;
     transition: all 0.3s ease;
   }
@@ -290,19 +295,19 @@
   }
   
   .service-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
     color: #00d2ff;
   }
   
   .service-features {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: left;
-    padding-left: 20px;
+    padding-left: 15px;
   }
   
   .service-features li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     position: relative;
     font-size: 0.9rem;
   }
@@ -310,111 +315,165 @@
   .service-features li::before {
     content: '▹';
     position: absolute;
-    left: -20px;
+    left: -15px;
     color: #3a7bd5;
   }
-  
-  /* Contact CTA */
-  .contact-cta {
-    padding: 60px 0 80px;
+
+/* Estilos generales */
+/* Estilos compactos */
+.contact-cta {
+    padding: 40px 0;
+    background: #0a0a0a;
   }
   
   .cta-card {
     background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
-    border-radius: 15px;
-    padding: 40px;
-    text-align: center;
-    max-width: 100%;
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2);
-    transform: scale(0.95);
-    opacity: 0;
-    animation: fadeInScale 1s ease-out 0.5s forwards;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    color: white;
   }
   
   .cta-title {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: 600;
   }
   
   .cta-description {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+  
+  .contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+    border-radius: 8px;
+    padding-top: 12px;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3a7bd5;
+    font-size: 0.9rem;
+  }
+  
+  .form-group textarea + .input-icon {
+    top: 15px;
+    transform: none;
   }
   
   .cta-button {
     background: #121212;
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 1rem;
+    padding: 12px 25px;
+    font-size: 0.9rem;
     font-weight: 600;
-    border-radius: 50px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
   }
   
   .cta-button:hover {
     background: #000000;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
   }
   
-  .cta-button:hover::before {
-    left: 100%;
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contact-cta {
+      padding: 30px 0;
+    }
+    
+    .cta-card {
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    .cta-title {
+      font-size: 1.3rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      padding: 10px 10px 10px 30px;
+      font-size: 0.85rem;
+    }
+    
+    .input-icon {
+      left: 10px;
+      font-size: 0.8rem;
+    }
+    
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 0.85rem;
+    }
   }
   
-  /* Footer */
+  /* Footer mejorado */
   .site-footer {
     background: #0a0a0a;
-    padding: 40px 0 20px;
+    padding: 30px 0 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .footer-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 25px;
+    margin-bottom: 25px;
   }
   
   .footer-logo-img {
-    max-height: 60px;
+    max-height: 50px;
     margin-bottom: 10px;
   }
   
   .footer-tagline {
     color: #3a7bd5;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .footer-title {
     color: #00d2ff;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1rem;
+    margin-bottom: 12px;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
   }
   
   .footer-title::after {
@@ -422,7 +481,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40px;
+    width: 30px;
     height: 2px;
     background: linear-gradient(90deg, #00d2ff, #3a7bd5);
   }
@@ -433,7 +492,7 @@
   }
   
   .contact-item {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
   }
@@ -441,13 +500,14 @@
   .contact-icon {
     margin-right: 8px;
     color: #3a7bd5;
+    font-size: 0.9rem;
   }
   
   .contact-item a {
     color: #ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   
   .contact-item a:hover {
@@ -457,7 +517,7 @@
   .social-links {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
   
   .social-link {
@@ -465,8 +525,8 @@
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
-    padding-left: 20px;
-    font-size: 0.9rem;
+    padding-left: 18px;
+    font-size: 0.85rem;
   }
   
   .social-link::before {
@@ -475,6 +535,7 @@
     left: 0;
     color: #3a7bd5;
     transition: transform 0.3s ease;
+    font-size: 0.9rem;
   }
   
   .social-link:hover {
@@ -487,17 +548,17 @@
   
   .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 20px;
+    padding-top: 15px;
     text-align: center;
   }
   
   .copyright {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   
-/* Animaciones mejoradas con timing functions personalizadas */
-@keyframes fadeIn {
+  /* Animaciones mejoradas */
+  @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
@@ -505,7 +566,7 @@
   @keyframes fadeInDown {
     from { 
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(-15px);
     }
     to { 
       opacity: 1;
@@ -516,7 +577,7 @@
   @keyframes fadeInUp {
     from { 
       opacity: 0;
-      transform: translateY(15px);
+      transform: translateY(10px);
     }
     to { 
       opacity: 1;
@@ -535,107 +596,131 @@
     }
   }
   
-  /* Aplicación de animaciones con timing mejorado */
-  .hero-banner {
-    animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  /* Media Queries optimizados */
+  
+  /* Móviles pequeños (≤ 360px) */
+  @media (max-width: 360px) {
+    .company-logo {
+      max-height: 100px;
+    }
+    
+    .company-tagline {
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .cta-button {
+      padding: 10px 25px;
+      font-size: 0.9rem;
+    }
+    
+    .value-card .card-inner {
+      padding: 15px 8px;
+    }
   }
   
-  .company-logo {
-    animation: fadeInDown 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) both 0.2s;
+  /* Tablets (≥ 600px) */
+  @media (min-width: 600px) {
+    .hero-banner {
+      padding: 60px 0;
+    }
+    
+    .company-logo {
+      max-height: 150px;
+    }
+    
+    .hero-card {
+      padding: 25px;
+      max-width: 80%;
+    }
+    
+    .mv-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cta-card {
+      padding: 30px;
+    }
   }
   
-  .hero-card {
-    animation: fadeInUp 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) both 0.4s;
-  }
-  
-  /* Media Queries para Responsive Design */
-  
-  /* Tablets (≥ 768px) */
+  /* Tablets grandes (≥ 768px) */
   @media (min-width: 768px) {
     body {
       font-size: 15px;
     }
-  
+    
     .hero-banner {
       padding: 80px 0;
     }
-  
-    .company-logo {
-      max-height: 180px;
-    }
-  
+    
     .company-tagline {
-      font-size: 2.2rem;
+      letter-spacing: 1.5px;
     }
-  
-    .hero-card {
-      padding: 30px;
-      max-width: 700px;
+    
+    .section-title {
+      margin-bottom: 35px;
     }
-  
-    .mv-grid {
-      grid-template-columns: repeat(2, 1fr);
+    
+    .values-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
-  
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
+    
     .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
   
   /* Laptops (≥ 992px) */
   @media (min-width: 992px) {
-    body {
-      font-size: 16px;
-    }
-  
     .hero-banner {
       padding: 100px 0;
     }
-  
-    .company-tagline {
-      font-size: 2.5rem;
+    
+    .hero-card {
+      padding: 30px;
+      max-width: 700px;
     }
-  
-    .section-title {
-      font-size: 2rem;
-    }
-  
-    .values-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  
+    
     .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    .footer-grid {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-  
-  /* Desktop (≥ 1200px) */
-  @media (min-width: 1200px) {
-    body {
-      font-size: 17px;
-    }
-  
-    .company-tagline {
-      font-size: 2.8rem;
-    }
-  
-    .section-title {
-      font-size: 2.2rem;
-    }
-  
+    
     .values-grid {
       grid-template-columns: repeat(5, 1fr);
     }
+    
+    .footer-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .footer-logo-img {
+      max-height: 60px;
+    }
+  }
   
+  /* Desktop grande (≥ 1200px) */
+  @media (min-width: 1200px) {
     .services-grid {
       grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .cta-card {
+      max-width: 800px;
+      padding: 40px;
+    }
+  }
+  
+  /* Pantallas muy grandes (≥ 1440px) */
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 1400px;
     }
   }

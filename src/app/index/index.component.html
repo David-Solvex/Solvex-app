@@ -4,7 +4,7 @@
     <section class="hero-banner">
       <div class="container">
         <div class="logo-container">
-          <img src="assets/images/LogoSolvex.jpeg" alt="Logo Solvex" class="company-logo">
+          <img src="assets/images/logo.png" alt="Logo Solvex" class="company-logo">
         </div>
         <h2 class="company-tagline">CREAMOS SOLUCIONES TECNOLÓGICAS</h2>
         <div class="hero-card">
@@ -152,14 +152,36 @@
 
     <!-- Contact CTA -->
     <section class="contact-cta">
-      <div class="container">
-        <div class="cta-card">
-          <h2 class="cta-title">¿LISTO PARA TRANSFORMAR TU NEGOCIO?</h2>
-          <p class="cta-description">Contáctanos y descubre cómo podemos ayudarte a alcanzar tus objetivos.</p>
-          <button class="cta-button">CONTACTAR AHORA</button>
+        <div class="container">
+          <div class="cta-card">
+            <h2 class="cta-title">¿LISTO PARA TRANSFORMAR TU NEGOCIO?</h2>
+            <p class="cta-description">Contáctanos y descubre cómo podemos ayudarte a alcanzar tus objetivos.</p>
+            
+            <form class="contact-form" action="#" method="POST">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Tu nombre" required>
+                <span class="input-icon"><i class="fas fa-user"></i></span>
+              </div>
+              <div class="form-group">
+                <input type="text" name="gmail" placeholder="Escribe tu gmail" required>
+                <span class="input-icon"><i class="fas fa-user"></i></span>
+              </div>
+              <div class="form-group">
+                <input type="text" name="subject" placeholder="Asunto" required>
+                <span class="input-icon"><i class="fas fa-tag"></i></span>
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Escribe tu mensaje aquí" required></textarea>
+                <span class="input-icon"><i class="fas fa-comment"></i></span>
+              </div>
+              <button type="submit" class="cta-button">
+                <span>ENVIAR MENSAJE</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- Footer -->
 <footer class="site-footer">
