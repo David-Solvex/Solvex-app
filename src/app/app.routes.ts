@@ -1,3 +1,6 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { HttpClientModule } from '@angular/common/http'
+import { IndexComponent } from './index/index.component';
+export const routes: Routes = [
+    { path: 'index', component: IndexComponent, title: 'Solvex - Soluciones Tecnológicas' },
+];
