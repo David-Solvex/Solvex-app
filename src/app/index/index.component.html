@@ -5,9 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solvex - Soluciones Tecnológicas</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="solvex-index">
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-logo">
+    <img src="assets/images/logo.png" alt="Solvex Logo">
+  </div>
+  <div class="loading-text">
+    Cargando...
+  </div>
+  <div class="loading-spinner">
+    <div class="spinner-ring"></div>
+    <div class="spinner-ring"></div>
+    <div class="spinner-ring"></div>
+  </div>
+  <div class="loading-progress">
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="progress-text">Preparando experiencia...</div>
+  </div>
+</div>
+
+<!-- Custom Cursor -->
+<div class="custom-cursor" id="customCursor"></div>
+
+<!-- Cursor Trails -->
+<div class="cursor-trail" id="trail1"></div>
+<div class="cursor-trail" id="trail2"></div>
+<div class="cursor-trail" id="trail3"></div>
+<div class="cursor-trail" id="trail4"></div>
+<div class="cursor-trail" id="trail5"></div>
+
+<div class="solvex-index" id="mainContent">
 <nav class="main-navbar">
   <div class="navbar-container">
     <a (click)="scrollToSection('hero')" class="nav-logo">
@@ -41,6 +73,9 @@
       <li><a (click)="scrollToSection('products'); toggleMenu()">Portafolio</a></li>
     </ul>
   </div>
+  
+  <!-- Overlay cuando el menú está abierto -->
+  <div class="mobile-menu-overlay" [class.active]="isMenuOpen" (click)="toggleMenu()"></div>
 </nav>
 
   <!-- Hero Section -->
@@ -68,7 +103,7 @@
   </a>
 
   <!-- Mission & Vision -->
-  <section id="mv" class="mission-vision">
+  <section id="mv" class="mission-vision section-reveal">
     <div class="container">
       <h2 class="section-title">NUESTRA ESENCIA</h2>
       <div class="mv-grid">
@@ -98,7 +133,7 @@
   </section>
 
   <!-- Values Section -->
-  <section id="values-section" class="values-section">
+  <section id="values-section" class="values-section section-reveal">
     <div class="container">
       <h2 class="section-title">NUESTROS VALORES</h2>
       <div class="values-grid">
@@ -142,7 +177,7 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="services-section">
+  <section id="services" class="services-section section-reveal">
     <div class="container">
       <h2 class="section-title">NUESTROS SERVICIOS</h2>
       <div class="services-grid">
@@ -201,7 +236,7 @@
     </div>
   </section>
 
-  <section class="clients-grid-section">
+  <section class="clients-grid-section section-reveal">
     <div class="container">
       <h2 class="section-title">EMPRESAS QUE HAN CONFIADO EN NOSOTROS</h2>
       <p class="section-subtitle">Conoce algunos de nuestros aliados</p>
@@ -223,7 +258,7 @@
   </section>
 
   <!-- Products Section -->
-<section id="products" class="services-section">
+<section id="products" class="services-section section-reveal">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Nuestro Portafolio</h2>
@@ -234,16 +269,16 @@
       <!-- Item 1 - Chatbot -->
       <div class="service-card" data-category="chatbots">
         <div class="card-inner">
-          <span class="material-icons service-icon">smart_toy</span> <!-- Icono de Material Icons -->
+          <span class="material-icons service-icon">smart_toy</span>
           <h3>ChatBot Inteligente</h3>
           <p>Solución de atención automática 24/7 con inteligencia artificial.</p>
           <div class="portfolio-media">
             <iframe src="https://www.youtube.com/embed/1f3j9PhWYPQ" title="Chatbot Demo" allowfullscreen></iframe>
           </div>
           <ul class="service-features">
-            <li><i class="fas fa-check-circle"></i> Integración con WhatsApp</li>
-            <li><i class="fas fa-check-circle"></i> Respuestas instantáneas</li>
-            <li><i class="fas fa-check-circle"></i> Personalización según negocio</li>
+            <li>Integración con WhatsApp</li>
+            <li>Respuestas instantáneas</li>
+            <li>Personalización según negocio</li>
           </ul>
         </div>
       </div>
@@ -258,9 +293,9 @@
             <img src="assets/images/image.png" alt="Sitio web La Número 1">
           </div>
           <ul class="service-features">
-            <li><i class="fas fa-check-circle"></i> Diseño responsive</li>
-            <li><i class="fas fa-check-circle"></i> Optimizado para SEO</li>
-            <li><i class="fas fa-check-circle"></i> Integración e-commerce</li>
+            <li>Diseño responsive</li>
+            <li>Optimizado para SEO</li>
+            <li>Integración e-commerce</li>
           </ul>
         </div>
       </div>
@@ -272,12 +307,12 @@
           <h3>Desarrollo de Apps</h3>
           <p>Aplicaciones modernas, rápidas y personalizadas para potenciar tu negocio.</p>
           <div class="portfolio-media">
-            <img src="assets/images/aplicacionesmoviles.jpg" alt="Aplicación móvil desarrollada para La Número 1">
+            <img src="assets/images/aplicacionesmoviles.jpg" alt="Aplicación móvil desarrollada">
           </div>
           <ul class="service-features">
-            <li><i class="fas fa-check-circle"></i> Desarrollo en Android y iOS</li>
-            <li><i class="fas fa-check-circle"></i> Diseño UI/UX personalizado</li>
-            <li><i class="fas fa-check-circle"></i> Integración con sistemas web</li>
+            <li>Desarrollo en Android y iOS</li>
+            <li>Diseño UI/UX personalizado</li>
+            <li>Integración con sistemas web</li>
           </ul>
         </div>
       </div>

@@ -12,9 +12,18 @@ export class IndexComponent implements AfterViewInit {
   @ViewChild('backgroundVideo') videoRef!: ElementRef<HTMLVideoElement>;
   isMenuOpen = false;
   isScrolled = false;
+  private trails: {x: number, y: number, opacity: number}[] = [];
+  private mouseX = 0;
+  private mouseY = 0;
+  private cursorX = 0;
+  private cursorY = 0;
 
   ngAfterViewInit() {
     this.setupVideoAutoplay();
+    this.initializeLoadingScreen();
+    this.initializeCursor();
+    this.setupIntersectionObserver();
+    this.setupEventListeners();
   }
 
   private setupVideoAutoplay() {
@@ -31,20 +40,227 @@ export class IndexComponent implements AfterViewInit {
     }
   }
 
-  @HostListener('window:scroll', [])
+private initializeLoadingScreen() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const mainContent = document.getElementById('mainContent');
+    const progressBar = document.querySelector('.progress-fill') as HTMLElement;
+    const progressText = document.querySelector('.progress-text') as HTMLElement;
+    
+    if (!loadingScreen || !mainContent || !progressBar || !progressText) return;
+
+    // Duración total deseada de la pantalla de carga (en milisegundos)
+    const totalDuration = 10000; // 10 segundos (cambia este valor según necesites)
+    const progressInterval = 200; // Intervalo de actualización de la barra de progreso
+    const steps = totalDuration / progressInterval;
+    const progressIncrement = 100 / steps;
+
+    const loadingMessages = [
+      'Inicializando componentes...',
+      'Cargando interfaz...',
+      'Preparando animaciones...',
+      'Optimizando rendimiento...',
+      'Finalizando carga...',
+      '¡Listo para comenzar!'
+    ];
+
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += progressIncrement;
+      if (progress > 100) progress = 100;
+      
+      progressBar.style.width = `${progress}%`;
+      
+      const messageIndex = Math.min(
+        Math.floor(progress / 20),
+        loadingMessages.length - 1
+      );
+      progressText.textContent = loadingMessages[messageIndex];
+      
+      if (progress >= 100) {
+        clearInterval(interval);
+        setTimeout(() => {
+          loadingScreen.style.transition = 'opacity 0.5s ease-out';
+          loadingScreen.style.opacity = '0';
+          loadingScreen.style.pointerEvents = 'none';
+          
+          mainContent.style.transition = 'opacity 0.5s ease-in';
+          mainContent.style.opacity = '1';
+          mainContent.style.visibility = 'visible';
+          
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 500);
+        }, 500);
+      }
+    }, progressInterval);
+
+    setTimeout(() => {
+      if (loadingScreen.style.display !== 'none') {
+        loadingScreen.style.display = 'none';
+        mainContent.style.opacity = '1';
+        mainContent.style.visibility = 'visible';
+      }
+    }, totalDuration * 1.5);
+}
+
+  private initializeCursor() {
+    const cursor = document.getElementById('customCursor');
+    const trailElements = document.querySelectorAll('.cursor-trail');
+    
+    if (!cursor || trailElements.length === 0) return;
+
+    cursor.classList.add('visible');
+    this.trails = [];
+    for (let i = 0; i < trailElements.length; i++) {
+      this.trails.push({ x: 0, y: 0, opacity: 0 });
+    }
+    
+    document.addEventListener('mousemove', (e) => {
+      this.mouseX = e.clientX;
+      this.mouseY = e.clientY;
+    });
+
+    this.animateCursor(cursor, trailElements);
+    this.setupCursorEffects(cursor, trailElements);
+  }
+
+  private animateCursor(cursor: HTMLElement, trailElements: NodeListOf<Element>) {
+    const animate = () => {
+      this.cursorX += (this.mouseX - this.cursorX) * 0.15;
+      this.cursorY += (this.mouseY - this.cursorY) * 0.15;
+      
+      cursor.style.left = `${this.cursorX}px`;
+      cursor.style.top = `${this.cursorY}px`;
+      
+      this.trails.forEach((trail, index) => {
+        const delay = (index + 1) * 0.05;
+        trail.x += (this.cursorX - trail.x) * (0.15 - delay);
+        trail.y += (this.cursorY - trail.y) * (0.15 - delay);
+        trail.opacity = Math.max(0, 0.8 - index * 0.15);
+        
+        const element = trailElements[index] as HTMLElement;
+        if (element) {
+          element.style.left = `${trail.x}px`;
+          element.style.top = `${trail.y}px`;
+          element.style.opacity = `${trail.opacity}`;
+        }
+      });
+      
+      requestAnimationFrame(animate);
+    };
+    
+    animate();
+  }
+
+  private setupCursorEffects(cursor: HTMLElement, trailElements: NodeListOf<Element>) {
+    const interactiveElements = document.querySelectorAll('a, button, .service-card, .value-card, .mv-card, .client-item, .nav-links li');
+    
+    interactiveElements.forEach(element => {
+      element.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+        trailElements.forEach(trail => {
+          const el = trail as HTMLElement;
+          el.style.transform = 'scale(1.5)';
+          el.style.background = 'rgba(0, 210, 255, 0.6)';
+        });
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+        trailElements.forEach(trail => {
+          const el = trail as HTMLElement;
+          el.style.transform = 'scale(1)';
+          el.style.background = 'var(--primary-color)';
+        });
+      });
+    });
+
+    document.addEventListener('mousedown', () => {
+      cursor.classList.add('click');
+      trailElements.forEach(trail => {
+        (trail as HTMLElement).style.transform = 'scale(0.8)';
+      });
+    });
+
+    document.addEventListener('mouseup', () => {
+      cursor.classList.remove('click');
+      trailElements.forEach(trail => {
+        (trail as HTMLElement).style.transform = 'scale(1)';
+      });
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+      trailElements.forEach(trail => {
+        (trail as HTMLElement).style.opacity = '0';
+      });
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity = '1';
+    });
+  }
+
+  private setupIntersectionObserver() {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          
+          const cards = entry.target.querySelectorAll('.mv-card, .value-card, .service-card, .client-item');
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('revealed');
+            }, index * 150);
+          });
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('.section-reveal');
+    sections.forEach(section => observer.observe(section));
+  }
+
+  private setupEventListeners() {
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    
+    if (hamburger) {
+      hamburger.addEventListener('click', () => this.toggleMenu());
+    }
+    
+    if (overlay) {
+      overlay.addEventListener('click', () => this.toggleMenu());
+    }
+
+    // Smooth scrolling for mobile menu links
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href') || link.textContent?.toLowerCase();
+        if (href) {
+          this.scrollToSection(href.replace('#', ''));
+          this.toggleMenu();
+        }
+      });
+    });
+  }
+
+  @HostListener('window:scroll')
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
   }
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
-    
-    // Bloquear el scroll del body cuando el menú está abierto
-    if (this.isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = this.isMenuOpen ? 'hidden' : '';
   }
 
   scrollToSection(sectionId: string): void {
@@ -54,7 +270,6 @@ export class IndexComponent implements AfterViewInit {
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
-      // Cerrar el menú móvil si está abierto
       if (this.isMenuOpen) {
         this.toggleMenu();
       }
