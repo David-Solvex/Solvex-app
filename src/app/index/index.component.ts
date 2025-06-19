@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class IndexComponent implements AfterViewInit {
   @ViewChild('backgroundVideo') videoRef!: ElementRef<HTMLVideoElement>;
+  isMenuOpen = false;
+  isScrolled = false;
 
   ngAfterViewInit() {
     this.setupVideoAutoplay();
@@ -29,12 +31,33 @@ export class IndexComponent implements AfterViewInit {
     }
   }
 
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 50;
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+    
+    // Bloquear el scroll del body cuando el menú está abierto
+    if (this.isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
       const navbarHeight = document.querySelector('.main-navbar')?.clientHeight || 0;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
+
+      // Cerrar el menú móvil si está abierto
+      if (this.isMenuOpen) {
+        this.toggleMenu();
+      }
 
       window.scrollTo({
         top: offsetPosition,

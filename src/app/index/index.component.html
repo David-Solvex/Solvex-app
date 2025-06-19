@@ -8,20 +8,40 @@
 </head>
 <body>
 <div class="solvex-index">
-  <nav class="main-navbar">
-    <div class="navbar-container">
-      <a (click)="scrollToSection('hero')" class="nav-logo">
-        <img src="assets/images/logo.png" alt="Logo Solvex" width="150">
-      </a>
-      <ul class="nav-links">
-        <li><a (click)="scrollToSection('hero')">Inicio</a></li>
-        <li><a (click)="scrollToSection('mv')">Esencia</a></li>
-        <li><a (click)="scrollToSection('values-section')">Valores</a></li>
-        <li><a (click)="scrollToSection('services')">Servicios</a></li>
-        <li><a (click)="scrollToSection('products')">Portafolio</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav class="main-navbar">
+  <div class="navbar-container">
+    <a (click)="scrollToSection('hero')" class="nav-logo">
+      <img src="assets/images/logo.png" alt="Logo Solvex" class="logo-img">
+    </a>
+    
+    <!-- Menú para desktop -->
+    <ul class="nav-links">
+      <li><a (click)="scrollToSection('hero')">Inicio</a></li>
+      <li><a (click)="scrollToSection('mv')">Esencia</a></li>
+      <li><a (click)="scrollToSection('values-section')">Valores</a></li>
+      <li><a (click)="scrollToSection('services')">Servicios</a></li>
+      <li><a (click)="scrollToSection('products')">Portafolio</a></li>
+    </ul>
+    
+    <!-- Botón hamburguesa para mobile -->
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Menú">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+  
+  <!-- Menú mobile -->
+  <div class="mobile-menu" [class.active]="isMenuOpen">
+    <ul>
+      <li><a (click)="scrollToSection('hero'); toggleMenu()">Inicio</a></li>
+      <li><a (click)="scrollToSection('mv'); toggleMenu()">Esencia</a></li>
+      <li><a (click)="scrollToSection('values-section'); toggleMenu()">Valores</a></li>
+      <li><a (click)="scrollToSection('services'); toggleMenu()">Servicios</a></li>
+      <li><a (click)="scrollToSection('products'); toggleMenu()">Portafolio</a></li>
+    </ul>
+  </div>
+</nav>
 
   <!-- Hero Section -->
   <section id="hero" class="hero-banner">
