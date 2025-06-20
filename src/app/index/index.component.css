@@ -205,15 +205,6 @@
       background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
       border-radius: 2px;
       width: 0%;
-      animation: progressLoad 3s ease-out forwards;
-    }
-
-    @keyframes progressLoad {
-      0% { width: 0%; }
-      20% { width: 30%; }
-      50% { width: 60%; }
-      80% { width: 90%; }
-      100% { width: 100%; }
     }
 
     .progress-text {
@@ -268,7 +259,7 @@
       padding: 0 15px;
     }
 
-    /* Navbar mejorado pero conservador */
+    /* Navbar mejorado */
     .main-navbar {
       position: fixed;
       top: 0;
@@ -299,6 +290,7 @@
 
     .nav-logo {
       transition: var(--smooth-transition);
+      cursor: pointer;
     }
 
     .logo-img {
@@ -313,7 +305,7 @@
       filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.5));
     }
 
-    /* Enlaces del navbar con animaciones sutiles */
+    /* Enlaces del navbar */
     .nav-links {
       list-style: none;
       display: flex;
@@ -336,6 +328,7 @@
       padding: 8px 16px;
       border-radius: 6px;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .nav-links li a::before {
@@ -376,7 +369,7 @@
       text-shadow: 0 0 8px rgba(0, 210, 255, 0.4);
     }
 
-    /* Botón hamburguesa mejorado */
+    /* Botón hamburguesa */
     .hamburger {
       display: none;
       background: transparent;
@@ -385,6 +378,9 @@
       padding: 10px;
       z-index: 1001;
       position: relative;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .hamburger-line {
@@ -392,7 +388,7 @@
       width: 25px;
       height: 2px;
       background: var(--text-light);
-      margin: 5px 0;
+      margin: 3px 0;
       transition: var(--smooth-transition);
       transform-origin: center;
     }
@@ -402,13 +398,25 @@
       box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
     }
 
-    /* Menú móvil mejorado */
+    /* Animaciones del hamburger cuando está activo */
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Menú móvil */
     .mobile-menu {
       position: fixed;
       top: 0;
       left: -100%;
-      width: 80%;
-      max-width: 300px;
+      width: 280px;
       height: 100vh;
       background: linear-gradient(135deg, rgba(13, 13, 13, 0.98), rgba(30, 30, 30, 0.98));
       backdrop-filter: blur(20px);
@@ -442,6 +450,7 @@
       text-decoration: none;
       transition: var(--smooth-transition);
       position: relative;
+      cursor: pointer;
     }
 
     .mobile-menu li::before {
@@ -465,7 +474,26 @@
       left: 100%;
     }
 
-    /* Hero Banner con animaciones sutiles */
+    /* Overlay cuando el menú está abierto */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Hero Banner */
     .hero-banner {
       position: relative;
       height: 100vh;
@@ -621,7 +649,7 @@
       text-align: center;
     }
 
-    /* Secciones con scroll reveal suave */
+    /* Secciones con scroll reveal */
     .section-reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -1116,7 +1144,7 @@
       font-size: 0.75rem;
     }
 
-    /* Botón de WhatsApp mejorado */
+    /* Botón de WhatsApp */
     .react_button {
       position: fixed;
       bottom: 20px;
@@ -1131,6 +1159,7 @@
       justify-content: center;
       transition: var(--smooth-transition);
       animation: subtlePulse 3s ease-in-out infinite;
+      text-decoration: none;
     }
 
     @keyframes subtlePulse {
@@ -1149,25 +1178,6 @@
       filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
     }
 
-    /* Overlay cuando el menú está abierto */
-    .mobile-menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-    }
-
-    .mobile-menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
     /* Estilos responsivos */
     @media (max-width: 768px) {
       .nav-links {
@@ -1175,19 +1185,7 @@
       }
       
       .hamburger {
-        display: block;
-      }
-      
-      .hamburger.active .hamburger-line:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-      
-      .hamburger.active .hamburger-line:nth-child(2) {
-        opacity: 0;
-      }
-      
-      .hamburger.active .hamburger-line:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        display: flex;
       }
 
       .mv-grid {
@@ -1213,7 +1211,7 @@
       }
     }
 
-    /* Tablets (≥ 600px) */
+    /* Tablets */
     @media (min-width: 600px) {
       .hero-banner {
         padding: 60px 0;
@@ -1245,7 +1243,6 @@
       }
     }
 
-    /* Tablets grandes (≥ 768px) */
     @media (min-width: 768px) {
       body {
         font-size: 15px;
@@ -1276,7 +1273,6 @@
       }
     }
 
-    /* Laptops (≥ 992px) */
     @media (min-width: 992px) {
       .hero-banner {
         padding: 100px 0;
@@ -1308,7 +1304,6 @@
       }
     }
 
-    /* Desktop grande (≥ 1200px) */
     @media (min-width: 1200px) {
       .services-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -1319,7 +1314,6 @@
       }
     }
 
-    /* Pantallas muy grandes (≥ 1440px) */
     @media (min-width: 1440px) {
       .container {
         max-width: 1400px;
