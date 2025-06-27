@@ -41,67 +41,28 @@ export class IndexComponent implements AfterViewInit {
   }
 
 private initializeLoadingScreen() {
-    const loadingScreen = document.getElementById('loadingScreen');
-    const mainContent = document.getElementById('mainContent');
-    const progressBar = document.querySelector('.progress-fill') as HTMLElement;
-    const progressText = document.querySelector('.progress-text') as HTMLElement;
-    
-    if (!loadingScreen || !mainContent || !progressBar || !progressText) return;
+  const loadingScreen = document.getElementById('loadingScreen');
+  const mainContent = document.getElementById('mainContent');
 
-    // Duración total deseada de la pantalla de carga (en milisegundos)
-    const totalDuration = 10000; // 10 segundos (cambia este valor según necesites)
-    const progressInterval = 200; // Intervalo de actualización de la barra de progreso
-    const steps = totalDuration / progressInterval;
-    const progressIncrement = 100 / steps;
+  if (!loadingScreen || !mainContent) return;
 
-    const loadingMessages = [
-      'Inicializando componentes...',
-      'Cargando interfaz...',
-      'Preparando animaciones...',
-      'Optimizando rendimiento...',
-      'Finalizando carga...',
-      '¡Listo para comenzar!'
-    ];
+  const totalDuration = Math.random() * 5000 + 2000;
 
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += progressIncrement;
-      if (progress > 100) progress = 100;
-      
-      progressBar.style.width = `${progress}%`;
-      
-      const messageIndex = Math.min(
-        Math.floor(progress / 20),
-        loadingMessages.length - 1
-      );
-      progressText.textContent = loadingMessages[messageIndex];
-      
-      if (progress >= 100) {
-        clearInterval(interval);
-        setTimeout(() => {
-          loadingScreen.style.transition = 'opacity 0.5s ease-out';
-          loadingScreen.style.opacity = '0';
-          loadingScreen.style.pointerEvents = 'none';
-          
-          mainContent.style.transition = 'opacity 0.5s ease-in';
-          mainContent.style.opacity = '1';
-          mainContent.style.visibility = 'visible';
-          
-          setTimeout(() => {
-            loadingScreen.style.display = 'none';
-          }, 500);
-        }, 500);
-      }
-    }, progressInterval);
+  setTimeout(() => {
+    loadingScreen.style.transition = 'opacity 0.5s ease-out';
+    loadingScreen.style.opacity = '0';
+    loadingScreen.style.pointerEvents = 'none';
+
+    mainContent.style.transition = 'opacity 0.5s ease-in';
+    mainContent.style.opacity = '1';
+    mainContent.style.visibility = 'visible';
 
     setTimeout(() => {
-      if (loadingScreen.style.display !== 'none') {
-        loadingScreen.style.display = 'none';
-        mainContent.style.opacity = '1';
-        mainContent.style.visibility = 'visible';
-      }
-    }, totalDuration * 1.5);
+      loadingScreen.style.display = 'none';
+    }, 500);
+  }, totalDuration);
 }
+
 
   private initializeCursor() {
     const cursor = document.getElementById('customCursor');
