@@ -939,64 +939,192 @@
       color: var(--primary-color);
     }
 
-    /* Clients Section */
-    .clients-grid-section {
-      padding: 60px 0;
-      text-align: center;
+    /* Estilos adicionales para servicios empresariales */
+    .enterprise-service {
+      position: relative;
     }
 
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: var(--text-muted);
-    }
-
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 30px;
-      padding-top: 30px;
-    }
-
-    .client-item {
-      background-color: rgba(244, 244, 244, 0.95);
-      padding: 20px;
-      border-radius: 12px;
-      transition: var(--smooth-transition);
+    .service-header {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      opacity: 0;
-      transform: translateY(20px) scale(0.9);
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
     }
 
-    .client-item.revealed {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+    .service-header h3 {
+      margin: 0;
+      flex: 1;
     }
 
-    .client-item img {
+    .service-price {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    .service-stats {
+      background: linear-gradient(135deg, #e7f3ff 0%, #f0f8ff 100%);
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      border-left: 4px solid #2a5298;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
       display: block;
-      margin: 0 auto;
-      height: 80px;
-      max-width: 100%;
-      object-fit: contain;
-      filter: grayscale(100%);
-      transition: var(--smooth-transition);
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2a5298;
+      margin-bottom: 0.25rem;
     }
 
-    .client-item:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-      background-color: rgba(255, 255, 255, 0.98);
+    .stat-label {
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 500;
     }
 
-    .client-item:hover img {
-      filter: grayscale(0%);
-      transform: scale(1.05);
+    .service-cta {
+      width: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
     }
+
+    .service-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Estilos para testimoniales */
+    .testimonial-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      border-left: 4px solid #3a7bd5;
+    }
+
+    .testimonial-card .card-inner {
+      background: transparent;
+      color: #333;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 1rem;
+      color: #3a7bd5;
+    }
+
+    .testimonial-stars .material-icons {
+      font-size: 18px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .testimonial-author h4 {
+      margin: 0;
+      color: #1e3c72;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-position {
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+/* Clients Section */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+.clients-grid {
+  display: flex;
+  justify-content: center;      
+  flex-wrap: wrap;             
+  gap: 30px;
+  padding-top: 30px;
+}
+
+.client-item {
+  background-color: rgba(244, 244, 244, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  transition: var(--smooth-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  width: 180px;                 /* ✅ Tamaño fijo para que no se estiren */
+}
+
+.client-item.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.client-item img {
+  display: block;
+  margin: 0 auto;
+  height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: var(--smooth-transition);
+}
+
+.client-item:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.client-item:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+
 
     /* Portfolio Media */
     .portfolio-media {
@@ -1202,6 +1330,24 @@
       
       .clients-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .service-price {
+        margin-left: 0;
+        align-self: flex-start;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+      }
+
+      .testimonial-text {
+        font-size: 1rem;
       }
     }
 

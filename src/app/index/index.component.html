@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solvex ofrece soluciones tecnológicas como desarrollo de software, automatización, chatbots e infraestructura a medida. Conoce nuestro portafolio.">
+  <meta name="description" content="Expertos en desarrollo tecnológico: automatización, CRM, ERP, apps móviles, ciberseguridad e infraestructura cloud. Transformamos ideas en soluciones digitales.">
   <title>Solvex - Soluciones Tecnológicas</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -43,7 +45,7 @@
 <nav class="main-navbar">
   <div class="navbar-container">
     <a (click)="scrollToSection('hero')" class="nav-logo">
-      <img src="assets/images/logo.png" alt="Logo Solvex" class="logo-img">
+      <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750448482/logo_dvow3u.png" alt="Logo Solvex" class="logo-img">
     </a>
     
     <!-- Menú para desktop -->
@@ -100,6 +102,8 @@
   <a class="react_button" href="https://wa.me/528713378238" target="_blank" aria-label="WhatsApp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="whatsapp-icon">
   </a>
+
+  <!-- Mission & Vision -->
 
   <!-- Mission & Vision -->
   <section id="mv" class="mission-vision section-reveal">
@@ -176,64 +180,103 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="services-section section-reveal">
-    <div class="container">
-      <h2 class="section-title">NUESTROS SERVICIOS</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="card-inner">
-            <span class="material-icons service-icon">trending_up</span>
-            <h3>Optimización de Ventas</h3>
-            <p>Soluciones tecnológicas para aumentar tus conversiones y maximizar tus ingresos.</p>
-            <ul class="service-features">
-              <li>Análisis de procesos comerciales</li>
-              <li>Automatización de ventas</li>
-              <li>CRM personalizado</li>
-            </ul>
-          </div>
-        </div>
+<!-- Services Section -->
+<section id="services" class="services-section section-reveal">
+  <div class="container">
+    <h2 class="section-title">SERVICIOS EMPRESARIALES</h2>
+    <p class="section-subtitle">Soluciones tecnológicas diseñadas para impulsar tu crecimiento empresarial</p>
 
-        <div class="service-card">
-          <div class="card-inner">
-            <span class="material-icons service-icon">settings_suggest</span>
-            <h3>Automatización de Procesos</h3>
-            <p>Reducción de tareas repetitivas mediante soluciones inteligentes.</p>
-            <ul class="service-features">
-              <li>Flujos de trabajo automatizados</li>
-              <li>Integración de sistemas</li>
-              <li>Reducción de errores humanos</li>
-            </ul>
-          </div>
-        </div>
+    <div class="services-grid">
 
-        <div class="service-card">
-          <div class="card-inner">
-            <span class="material-icons service-icon">developer_mode</span>
-            <h3>Desarrollo Tecnológico</h3>
-            <p>Soluciones software a medida para tus necesidades específicas.</p>
-            <ul class="service-features">
-              <li>Aplicaciones web y móviles</li>
-              <li>Sistemas de gestión empresarial</li>
-              <li>Desarrollo de APIs</li>
-            </ul>
+      <!-- Servicio 1: Desarrollo de Páginas Web -->
+      <div class="service-card enterprise-service">
+        <div class="card-inner">
+          <span class="material-icons service-icon">language</span>
+          <div class="service-header">
+            <h3>Desarrollo de Páginas Web</h3>
+            <div class="service-price">Desde: $1,200MXN</div>
           </div>
-        </div>
-
-        <div class="service-card">
-          <div class="card-inner">
-            <span class="material-icons service-icon">insights</span>
-            <h3>Analítica de Datos</h3>
-            <p>Transformamos tus datos en información valiosa para la toma de decisiones.</p>
-            <ul class="service-features">
-              <li>Dashboards interactivos</li>
-              <li>Inteligencia de negocio</li>
-              <li>Predictores de tendencias</li>
-            </ul>
+          <p>Diseñamos sitios web profesionales, optimizados y adaptables a cualquier dispositivo.</p>
+          <ul class="service-features">
+            <li>Diseño responsive</li>
+            <li>Optimización SEO</li>
+            <li>Integración con sistemas externos</li>
+            <li>Gestor de contenidos</li>
+            <li>Velocidad y seguridad web</li>
+          </ul>
+          <div class="service-stats">
+            <div class="stat-item">
+              <span class="stat-number">+300</span>
+              <span class="stat-label">Sitios entregados</span>
+            </div>
           </div>
+          <a href="https://wa.me/528713378238?text=Hola,%20quiero%20una%20cotización%20para%20Desarrollo%20de%20Páginas%20Web" class="service-cta" target="_blank" rel="noopener noreferrer">
+            Solicitar Cotización
+          </a>
         </div>
       </div>
+
+      <!-- Servicio 2: Desarrollo de Apps Móviles -->
+      <div class="service-card enterprise-service">
+        <div class="card-inner">
+          <span class="material-icons service-icon">smartphone</span>
+          <div class="service-header">
+            <h3>Desarrollo de Apps Móviles</h3>
+            <div class="service-price">Desde: $2,000MXN</div>
+          </div>
+          <p>Creamos aplicaciones móviles personalizadas para Android y iOS que potencian tu negocio.</p>
+          <ul class="service-features">
+            <li>Apps nativas o híbridas</li>
+            <li>Diseño UX/UI profesional</li>
+            <li>Integración con APIs y bases de datos</li>
+            <li>Notificaciones push</li>
+            <li>Publicación en tiendas oficiales</li>
+          </ul>
+          <div class="service-stats">
+            <div class="stat-item">
+              <span class="stat-number">+150</span>
+              <span class="stat-label">Apps en producción</span>
+            </div>
+          </div>
+          <a href="https://wa.me/528713378238?text=Hola,%20quiero%20una%20cotización%20para%20Desarrollo%20de%20Apps%20Móviles" class="service-cta" target="_blank" rel="noopener noreferrer">
+            Solicitar Cotización
+          </a>
+        </div>
+      </div>
+
+      <!-- Servicio 3: Chatbots con Inteligencia Artificial -->
+      <div class="service-card enterprise-service">
+        <div class="card-inner">
+          <span class="material-icons service-icon">chat</span>
+          <div class="service-header">
+            <h3>Chatbots con IA</h3>
+            <div class="service-price">Desde: $900MXN</div>
+          </div>
+          <p>Automatiza la atención al cliente con chatbots inteligentes para WhatsApp, web o redes sociales.</p>
+          <ul class="service-features">
+            <li>Integración con WhatsApp y web</li>
+            <li>Respuestas automáticas con IA</li>
+            <li>Flujos conversacionales personalizados</li>
+            <li>Captura de leads y cotizaciones</li>
+            <li>Entrenamiento y métricas</li>
+          </ul>
+          <div class="service-stats">
+            <div class="stat-item">
+              <span class="stat-number">+95%</span>
+              <span class="stat-label">Clientes satisfechos</span>
+            </div>
+          </div>
+          <a href="https://wa.me/528713378238?text=Hola,%20quiero%20una%20cotización%20para%20Chatbots%20con%20Inteligencia%20Artificial" class="service-cta" target="_blank" rel="noopener noreferrer">
+            Solicitar Cotización
+          </a>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+
 
   <section class="clients-grid-section section-reveal">
     <div class="container">
@@ -256,137 +299,240 @@
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="values-section section-reveal">
+    <div class="container">
+      <h2 class="section-title">LO QUE DICEN NUESTROS CLIENTES</h2>
+      <p class="section-subtitle">Testimonios reales de empresas que han transformado sus operaciones</p>
+      <div class="values-grid">
+        <div class="value-card testimonial-card">
+          <div class="card-inner">
+            <div class="testimonial-stars">
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+            </div>
+            <p class="testimonial-text">
+              "Solvex transformó completamente nuestro proceso de ventas. El sistema CRM que desarrollaron aumentó nuestras conversiones en un 240% en solo 3 meses."
+            </p>
+            <div class="testimonial-author">
+              <h4>Carlos Mendoza</h4>
+              <span class="testimonial-position">CEO, TechStart Mexico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="value-card testimonial-card">
+          <div class="card-inner">
+            <div class="testimonial-stars">
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+            </div>
+            <p class="testimonial-text">
+              "El chatbot con IA nos permitió atender clientes 24/7. Nuestro equipo ahora se enfoca en tareas estratégicas y la satisfacción del cliente mejoró significativamente."
+            </p>
+            <div class="testimonial-author">
+              <h4>Ana López</h4>
+              <span class="testimonial-position">Directora de Operaciones, RetailPlus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="value-card testimonial-card">
+          <div class="card-inner">
+            <div class="testimonial-stars">
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+            </div>
+            <p class="testimonial-text">
+              "La plataforma de análisis de datos nos dio insights que nunca habíamos considerado. ROI del 350% en el primer año. Altamente recomendados."
+            </p>
+            <div class="testimonial-author">
+              <h4>Roberto Sánchez</h4>
+              <span class="testimonial-position">CFO, InnovateCorp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="value-card testimonial-card">
+          <div class="card-inner">
+            <div class="testimonial-stars">
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+            </div>
+            <p class="testimonial-text">
+              "El desarrollo de nuestra aplicación móvil superó todas nuestras expectativas. La entrega fue puntual y el soporte post-lanzamiento excepcional."
+            </p>
+            <div class="testimonial-author">
+              <h4>María González</h4>
+              <span class="testimonial-position">Gerente de Tecnología, ConstructoraPlus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="value-card testimonial-card">
+          <div class="card-inner">
+            <div class="testimonial-stars">
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+              <span class="material-icons">star</span>
+            </div>
+            <p class="testimonial-text">
+              "La automatización de procesos que implementaron nos ahorró 30 horas semanales de trabajo manual. El equipo de Solvex es altamente profesional."
+            </p>
+            <div class="testimonial-author">
+              <h4>Luis Herrera</h4>
+              <span class="testimonial-position">Director Administrativo, Logística del Norte</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Products Section -->
-<section id="products" class="services-section section-reveal">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Nuestro Portafolio</h2>
-      <p class="section-subtitle">Proyectos destacados que hemos creado con pasión</p>
+  <section id="products" class="services-section section-reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestro Portafolio</h2>
+        <p class="section-subtitle">Proyectos destacados que hemos creado con pasión</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Item 1 - Chatbot Inteligente -->
+        <div class="service-card" data-category="chatbots">
+          <div class="card-inner">
+            <span class="material-icons service-icon">smart_toy</span>
+            <h3>ChatBot Inteligente</h3>
+            <p>Solución de atención automática 24/7 con inteligencia artificial.</p>
+            <div class="portfolio-media">
+              <iframe src="https://www.youtube.com/embed/1f3j9PhWYPQ" title="Chatbot Demo" allowfullscreen></iframe>
+            </div>
+            <ul class="service-features">
+              <li>Integración con WhatsApp</li>
+              <li>Respuestas instantáneas</li>
+              <li>Personalización según negocio</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Item 2 - Web Corporativa -->
+        <div class="service-card" data-category="web">
+          <div class="card-inner">
+            <span class="material-icons service-icon">code</span>
+            <h3>Web Corporativa</h3>
+            <p>Diseño moderno para empresa de materiales de construcción.</p>
+            <div class="portfolio-media">
+              <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750448481/image_g8fmal.png" alt="Sitio web La Número 1">
+            </div>
+            <ul class="service-features">
+              <li>Diseño responsive</li>
+              <li>Optimizado para SEO</li>
+              <li>Integración e-commerce</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Item 3 - Desarrollo de Apps -->
+        <div class="service-card" data-category="apps">
+          <div class="card-inner">
+            <span class="material-icons service-icon">phone_iphone</span>
+            <h3>Desarrollo de Apps</h3>
+            <p>Aplicaciones modernas, rápidas y personalizadas para potenciar tu negocio.</p>
+            <div class="portfolio-media">
+              <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750448481/aplicacionesmoviles_qfyq2i.jpg" alt="Aplicación móvil desarrollada">
+            </div>
+            <ul class="service-features">
+              <li>Android y iOS nativas o híbridas</li>
+              <li>Diseño UI/UX atractivo</li>
+              <li>Conexión con API y sistemas existentes</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Item 4 - Sistemas a Medida -->
+        <div class="service-card" data-category="custom-systems">
+          <div class="card-inner">
+            <span class="material-icons service-icon">build</span>
+            <h3>Sistemas a Medida</h3>
+            <p>Soluciones empresariales desarrolladas 100% a medida.</p>
+            <div class="portfolio-media">
+              <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449137/sistema_medida_g0rhh5.jpg" alt="Sistema personalizado">
+            </div>
+            <ul class="service-features">
+              <li>ERP, CRM, Inventarios</li>
+              <li>Automatización de procesos</li>
+              <li>Escalabilidad garantizada</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Item 5 - Tiendas en Línea -->
+        <div class="service-card" data-category="ecommerce">
+          <div class="card-inner">
+            <span class="material-icons service-icon">shopping_cart</span>
+            <h3>E-Commerce</h3>
+            <p>Plataformas de venta en línea con diseño atractivo y funcional.</p>
+            <div class="portfolio-media">
+              <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449137/ecommerce_bexh0d.jpg" alt="Tienda online">
+            </div>
+            <ul class="service-features">
+              <li>Carrito y pagos seguros</li>
+              <li>Admin de productos y pedidos</li>
+              <li>Envíos, cupones y promociones</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Item 6 - Auditoría y Seguridad -->
+        <div class="service-card" data-category="security">
+          <div class="card-inner">
+            <span class="material-icons service-icon">security</span>
+            <h3>Auditoría & Seguridad</h3>
+            <p>Protección total para tus datos y sistemas críticos.</p>
+            <div class="portfolio-media">
+              <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449137/auditoriayseguridad_z4tili.jpg" alt="Ciberseguridad empresarial">
+            </div>
+            <ul class="service-features">
+              <li>Auditoría de código y accesos</li>
+              <li>Protección contra ataques</li>
+              <li>Backups y recuperación</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Item 7 - Infraestructura y Bases de Datos -->
+        <div class="service-card" data-category="infraestructura">
+          <div class="card-inner">
+            <span class="material-icons service-icon">storage</span>
+            <h3>Infraestructura & Bases de Datos</h3>
+            <p>Diseño, despliegue y mantenimiento de infraestructuras escalables y seguras.</p>
+            <div class="portfolio-media">
+              <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449136/bd_ogj5vy.jpg" alt="Infraestructura tecnológica y base de datos">
+            </div>
+            <ul class="service-features">
+              <li>Configuración en la nube (AWS, Azure, GCP)</li>
+              <li>Gestión de bases de datos SQL y NoSQL</li>
+              <li>Alta disponibilidad y replicación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="services-grid">
-
-      <!-- Item 1 - Chatbot Inteligente -->
-      <div class="service-card" data-category="chatbots">
-        <div class="card-inner">
-          <span class="material-icons service-icon">smart_toy</span>
-          <h3>ChatBot Inteligente</h3>
-          <p>Solución de atención automática 24/7 con inteligencia artificial.</p>
-          <div class="portfolio-media">
-            <iframe src="https://www.youtube.com/embed/1f3j9PhWYPQ" title="Chatbot Demo" allowfullscreen></iframe>
-          </div>
-          <ul class="service-features">
-            <li>Integración con WhatsApp</li>
-            <li>Respuestas instantáneas</li>
-            <li>Personalización según negocio</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Item 2 - Web Corporativa -->
-      <div class="service-card" data-category="web">
-        <div class="card-inner">
-          <span class="material-icons service-icon">code</span>
-          <h3>Web Corporativa</h3>
-          <p>Diseño moderno para empresa de materiales de construcción.</p>
-          <div class="portfolio-media">
-            <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750448481/image_g8fmal.png" alt="Sitio web La Número 1">
-          </div>
-          <ul class="service-features">
-            <li>Diseño responsive</li>
-            <li>Optimizado para SEO</li>
-            <li>Integración e-commerce</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Item 3 - Desarrollo de Apps -->
-      <div class="service-card" data-category="apps">
-        <div class="card-inner">
-          <span class="material-icons service-icon">phone_iphone</span>
-          <h3>Desarrollo de Apps</h3>
-          <p>Aplicaciones modernas, rápidas y personalizadas para potenciar tu negocio.</p>
-          <div class="portfolio-media">
-            <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750448481/aplicacionesmoviles_qfyq2i.jpg" alt="Aplicación móvil desarrollada">
-          </div>
-          <ul class="service-features">
-            <li>Android y iOS nativas o híbridas</li>
-            <li>Diseño UI/UX atractivo</li>
-            <li>Conexión con API y sistemas existentes</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Item 4 - Sistemas a Medida -->
-      <div class="service-card" data-category="custom-systems">
-        <div class="card-inner">
-          <span class="material-icons service-icon">build</span>
-          <h3>Sistemas a Medida</h3>
-          <p>Soluciones empresariales desarrolladas 100% a medida.</p>
-          <div class="portfolio-media">
-            <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449137/sistema_medida_g0rhh5.jpg" alt="Sistema personalizado">
-          </div>
-          <ul class="service-features">
-            <li>ERP, CRM, Inventarios</li>
-            <li>Automatización de procesos</li>
-            <li>Escalabilidad garantizada</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Item 5 - Tiendas en Línea -->
-      <div class="service-card" data-category="ecommerce">
-        <div class="card-inner">
-          <span class="material-icons service-icon">shopping_cart</span>
-          <h3>E-Commerce</h3>
-          <p>Plataformas de venta en línea con diseño atractivo y funcional.</p>
-          <div class="portfolio-media">
-            <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449137/ecommerce_bexh0d.jpg" alt="Tienda online">
-          </div>
-          <ul class="service-features">
-            <li>Carrito y pagos seguros</li>
-            <li>Admin de productos y pedidos</li>
-            <li>Envíos, cupones y promociones</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Item 6 - Auditoría y Seguridad -->
-      <div class="service-card" data-category="security">
-        <div class="card-inner">
-          <span class="material-icons service-icon">security</span>
-          <h3>Auditoría & Seguridad</h3>
-          <p>Protección total para tus datos y sistemas críticos.</p>
-          <div class="portfolio-media">
-            <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449137/auditoriayseguridad_z4tili.jpg" alt="Ciberseguridad empresarial">
-          </div>
-          <ul class="service-features">
-            <li>Auditoría de código y accesos</li>
-            <li>Protección contra ataques</li>
-            <li>Backups y recuperación</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Item 7 - Infraestructura y Bases de Datos -->
-      <div class="service-card" data-category="infraestructura">
-        <div class="card-inner">
-          <span class="material-icons service-icon">storage</span>
-          <h3>Infraestructura & Bases de Datos</h3>
-          <p>Diseño, despliegue y mantenimiento de infraestructuras escalables y seguras.</p>
-          <div class="portfolio-media">
-            <img src="https://res.cloudinary.com/ddy9zirpm/image/upload/v1750449136/bd_ogj5vy.jpg" alt="Infraestructura tecnológica y base de datos">
-          </div>
-          <ul class="service-features">
-            <li>Configuración en la nube (AWS, Azure, GCP)</li>
-            <li>Gestión de bases de datos SQL y NoSQL</li>
-            <li>Alta disponibilidad y replicación</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
   <!-- Footer -->
